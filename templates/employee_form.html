@@ -1,0 +1,31 @@
+{% extends 'base.html' %}
+{% load crispy_forms_tags %}
+
+{% block content %}
+<form method="post">
+    {% csrf_token %}
+<!-- {{k|crispy}} -->
+{{k.Fullname|as_crispy_field}}
+{{k.Mobile|as_crispy_field}}
+<div class="row">
+    <div class="col-md-4">
+        {{k.emp_code|as_crispy_field}}
+    </div>
+    <div class="col-md-8">
+        {{k.Position|as_crispy_field}} 
+    </div>
+</div>
+<br>
+<div class="row">
+    <div class="col-md-8">
+        <button type="submit" class="btn btn-success btn-lg"><i class="fa-solid fa-face-grin"></i>Submit</button>
+    </div>
+    <div class="col-md-4">
+        <a href="">
+            <button type="submit" class="btn btn-warning btn-lg"><i class="fa-solid fa-angles-right"></i>Back to list</button>
+        </a>
+    </div>
+</div>
+
+</form>
+{% endblock %}
